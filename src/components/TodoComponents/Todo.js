@@ -2,4 +2,17 @@
 
 import React from "react"; 
 
-const Todo
+const Todo = props => {
+    let ActionTodo = "ToDoItem";
+    if(props.TodoItem.completed) {
+        ActionTodo = ActionTodo + 'completed'; 
+    }
+
+    return (
+        <div className={`TodoItem${props.TodoItem.completed ? ' purchased ' : " "}`}>
+            <p>{props.item.mane}</p>
+        </div>
+    );
+};
+
+export default Todo; 
