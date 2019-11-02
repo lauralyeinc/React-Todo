@@ -8,12 +8,21 @@
 
 import React from 'react'; 
 
-import Todo from "./Todo.js"; 
+import Todo from "../Todo.js/index.js"; 
+import TodoForm from "./TodoForm.js"; 
 
 const TodoList = props => {
+
     return (
-        <div className="ToDo-List">
-        {props.}    
+        <div className="Page">
+            <TodoForm /> 
+            <div className="ToDo-List">
+            {props.chores.map(todo => (
+            <Todo key={todo.id} todo={todo} />
+            ))}  
+            </div>
         </div>
-    )
-}
+    );
+};
+
+export default TodoList; 
