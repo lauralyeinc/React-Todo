@@ -6,33 +6,22 @@ import React from "react";
 
 const TodoForm = props => {
 
-    // handleChanges = event => {
-    //     this.setState({
-    //         TodoItem: event.target.value
-    //     }); 
-    // }
-
-    // handleSubmit = event => {
-    //     event.preventDefault();
-    //     if (this.state.TodoItem !== " ") {
-    //         this.props.addItem(this.state.TodoItem);
-    //         this.setState({
-    //             TodoItem: ""
-    //         }); 
-    //     }
-    // }
-
         return (
             <div> 
                 <form>
                     <input 
-                    onChange={props} 
+                    onChange={props.handleChangeTodo} 
                     type='text' 
                     name="Add To Do" 
-                    value={props} 
+                    value={props.value} 
                     /> 
-                    <button onClick={prop} className="Submit-Button"> Submit!  </button>
-                    <button onClick={prop} className="Clear-Button"> Clear Completed </button>
+                    <button 
+                    onClick={props.handleChangeTodo} 
+                    className="Submit-Button"> 
+                    Submit!  </button>
+                    <button onClick={props.handleChangeAddTodo}
+                    className="Clear-Button">
+                    Clear Completed </button>
                 </form>
             </div>
         )

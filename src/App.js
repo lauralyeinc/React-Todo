@@ -4,9 +4,11 @@
 
 import React from 'react';
 
-import TodoData from "./components/TodoData.js"; 
+import Data from "./components/Data.js"; 
 import TodoList from "./components/TodoList.js"; 
 import TodoForm from "./components/TodoForm.js"; 
+
+import Todo from './components/Todo.js';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -15,9 +17,44 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      chores: TodoData
+      ToDos: Data,
+      ToDo: " "
     }; 
   }
+  
+  handleChangeAddTodo = event => {
+    event.preventDefault();
+    const newToDo = { task: this.state.ToDo, completed: false, id: Date.now() };
+    this.setState({
+      ToDo: [...this.state.ToDos, newToDo],
+      ToDos: ""
+    });
+  }; 
+  
+
+  handleChangeTodo = event => {
+    this.setState({ [event.target.name]: event.target.value }); 
+  }
+
+
+  toggleTodo = id => {
+    let ToDos = this.state.ToDos.slice();
+    ToDos = ToDos.map(ToDo => {
+      if (ToDo.id === id ) {
+        ToDo.completed = !ToDo.completed; 
+        return ToDo;
+      } else {
+        return Todo;
+      }
+    });
+    this.setState({ ToDos }); 
+  }; 
+
+  clearCompleted = event => {
+    event.preventDefault();
+    let ToDos = this.state.ToDos.filter(ToDo => !ToDo.completed); 
+    this.setState({ ToDos });
+  }; 
   
   render() {
     console.log("App.js: rendering"); 
@@ -25,9 +62,16 @@ class App extends React.Component {
       <div>
         <div> 
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm />
+        <TodoForm 
+        value={this.state.ToDo} 
+        handleChangeClearTodo={this.clearCompleted}
+        handleChangeAddTodo={this.addNewTodo}
+        handleChangeTodo={this.handleChange}
+        /> 
         </div>
-        <TodoList chores={this.state.chores} /> 
+        <TodoList chores={this.state.ToDos}
+        handleToggle={this.toggleTodo}
+        /> 
       </div>
     );
   }
