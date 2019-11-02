@@ -8,7 +8,7 @@ const Todo = props => {
         onClick={() => props.handleToggle(props.ToDo.id)} >
             {props.ToDo.task}
         </div>
-    )
-}
+    );
+};
 
 export default Todo; 

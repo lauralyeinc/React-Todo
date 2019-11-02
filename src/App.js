@@ -4,7 +4,6 @@
 
 import React from 'react';
 
-import Data from "./components/Data.js"; 
 import TodoList from "./components/TodoList.js"; 
 import TodoForm from "./components/TodoForm.js"; 
 
@@ -17,7 +16,23 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      ToDos: Data,
+      ToDos: [
+        {
+            task: "Wash The Dishes",
+            id: Date.now(),
+            completed: false 
+        },
+        {
+            task: 'Take out the Trash',
+            id: Date.now(),
+            completed: false
+        },
+        {
+            task: "Do Laundry",
+            id: Date.now(),
+            completed: false
+        }
+      ],
       ToDo: " "
     }; 
   }
@@ -57,11 +72,11 @@ class App extends React.Component {
   }; 
   
   render() {
-    console.log("App.js: rendering"); 
+    console.log("App.js: rendering");      // yes 
     return (
       <div>
         <div> 
-        <h2>Welcome to your Todo App!</h2>
+        <h2>Welcome, Let's Get this Done! </h2>
         <TodoForm 
         value={this.state.ToDo} 
         handleChangeClearTodo={this.clearCompleted}

@@ -4,14 +4,14 @@ import React from 'react';
 import Todo from "./Todo.js"; 
 
 const TodoList = props => {
-
+console.log("ToDoList.js:  I am working here");  //yes 
     return (
-        <div className="Todo-List">
-        {props.ToDos.map(todo => (
-        <Todo 
-        handleToggle={props.handleToggle}
-        key={todo.id} todo={todo} />
-        ))}  
+        <div>
+            {props.ToDos.map(ToDo => (
+            <Todo 
+            handleToggle={props.handleToggle}
+            key={ToDo.id} ToDo={ToDo} />
+            ))}  
         </div>
     );
 };
