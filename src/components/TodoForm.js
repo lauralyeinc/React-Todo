@@ -13,7 +13,7 @@ const TodoForm = props => {
                     onChange={props.handleChangeTodo} 
                     type='text' 
                     name="Add To Do" 
-                    value={props.value} 
+                    value={props.ToDo} 
                     /> 
                     <button 
                     onClick={props.handleChangeTodo} 

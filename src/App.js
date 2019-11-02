@@ -19,17 +19,17 @@ class App extends React.Component {
       ToDos: [
         {
             task: "Wash The Dishes",
-            id: Date.now(),
+            id: 473894729384,
             completed: false 
         },
         {
             task: 'Take out the Trash',
-            id: Date.now(),
+            id: 834293847293478,
             completed: false
         },
         {
             task: "Do Laundry",
-            id: Date.now(),
+            id: 9847239847,
             completed: false
         }
       ],
@@ -41,14 +41,14 @@ class App extends React.Component {
     event.preventDefault();
     const newToDo = { task: this.state.ToDo, completed: false, id: Date.now() };
     this.setState({
-      ToDo: [...this.state.ToDos, newToDo],
-      ToDos: ""
+      ToDo: [...this.state.ToDos, newToDo],       // taking all todos and adding the new tdo to all.
+      ToDos: ""       // resetting the input field to empty todo 
     });
   }; 
   
 
   handleChangeTodo = event => {
-    this.setState({ [event.target.name]: event.target.value }); 
+    this.setState({ [event.target.name]: event.target.value });    //? 
   }
 
 
